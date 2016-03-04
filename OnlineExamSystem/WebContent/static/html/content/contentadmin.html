@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>题库管理员</title>
+<link href="/OnlineExamSystem/static/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/OnlineExamSystem/static/css/smoke.min.css" rel="stylesheet" />
+<script type="text/javascript" src="/OnlineExamSystem/static/js/jquery-2.2.0.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/smoke.min.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/common.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/init.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/request-handle.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/content/contentadmin.js"></script>
+</head>
+<body style="margin-bottom:50px">
+  <div class="modal fade" id="messageDlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel"></h4>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button id="messageDlgOkBtn" type="button" class="btn btn-primary">确认</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/OnlineExamSystem/page/contentadmin">在线考试系统</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span><label id="currentUser"></label></a></li>
+        <li><a href="/OnlineExamSystem/request/logout"><span class="glyphicon glyphicon-log-out"></span>注销</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="nav-header">试题管理</li>
+          <li class="active"><a href="/OnlineExamSystem/page/contentadmin">查看试题列表</a></li>
+          <li><a href="/OnlineExamSystem/page/contentadmin/question_create">创建新试题</a></li>
+          <li class="nav-header">考试管理</li>
+          <li><a href="#">查看考试列表</a></li>
+          <li><a href="#">创建新考试</a></li>
+          <li class="nav-header">个人信息</li>
+          <li><a href="#">查看个人信息</a></li>
+          <li><a href="#">修改密码</a></li>
+          <li><a href="#">修改个人资料</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <ol class="breadcrumb">
+            <li>试题管理</li>
+            <li class="active">试题列表</li>
+          </ol>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="input-group">
+              <input id="keyword" type="text" class="form-control" placeholder="请输入问题关键字"> <span
+                class="input-group-addon btn btn-default" id="searchBtn"><span class="glyphicon glyphicon-search"></span></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th class="text-center">序号</th>
+                  <th class="text-center" id="idHeader" style="cursor: pointer;">编号<span class="glyphicon glyphicon-chevron-down"></span></th>
+                  <th class="text-center" id="questionHeader" style="cursor: pointer;">问题<span></span></th>
+                  <th class="text-center">正确答案</th>
+                  <th class="text-center">描述信息</th>
+                  <th class="text-center"><input type="checkbox"></th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-1">
+            <ul class="pagination">
+              <li><a class="btn" id="firstBtn" href="#">&lt;&lt;</a></li>
+              <li><a class="btn" id="preBtn" href="#">&lt;</a></li>
+              <li><a id="pageCount" href="#" style="cursor: default;">1/1</a></li>
+              <li><a class="btn" id="nextBtn" href="#">&gt;</a></li>
+              <li><a class="btn" id="lastBtn" href="#">&gt;&gt;</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2" style="padding-top: 20px;">
+            <div class="input-group">
+              <span class="input-group-addon" style="background-color: white">每页</span> <select id="perPageCount"
+                class="form-control" style="width: 50px; padding: 2px;">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2 form-group" style="padding-top: 20px;">
+            <input class="form-control" id="currentPage" type="number" min="1"
+              style="padding: 5px; width: 45px; display: inline-block;">
+            <button class="btn btn-primary" id="goBtn">跳转</button>
+          </div>
+          <div class="col-md-2" style="padding-top: 20px;">
+            <button class="btn btn-danger" id="deleteBtn">删除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

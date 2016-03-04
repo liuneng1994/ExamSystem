@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>创建试题</title>
+<link href="/OnlineExamSystem/static/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/OnlineExamSystem/static/css/smoke.min.css" rel="stylesheet" />
+<script type="text/javascript" src="/OnlineExamSystem/static/js/jquery-2.2.0.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/smoke.min.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/common.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/init.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/request-handle.js"></script>
+<script type="text/javascript" src="/OnlineExamSystem/static/js/content/create-question.js"></script>
+</head>
+<body style="margin-bottom: 50px">
+  <div class="modal fade" id="messageDlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel"></h4>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button id="messageDlgOkBtn" type="button" class="btn btn-primary">确认</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/OnlineExamSystem/page/contentadmin">在线考试系统</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span><label id="currentUser"></label></a></li>
+        <li><a href="/OnlineExamSystem/request/logout"><span class="glyphicon glyphicon-log-out"></span>注销</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="nav-header">试题管理</li>
+          <li><a href="/OnlineExamSystem/page/contentadmin">查看试题列表</a></li>
+          <li class="active"><a href="/OnlineExamSystem/page/contentadmin/question_create">创建新试题</a></li>
+          <li class="nav-header">考试管理</li>
+          <li><a href="#">查看考试列表</a></li>
+          <li><a href="#">创建新考试</a></li>
+          <li class="nav-header">个人信息</li>
+          <li><a href="#">查看个人信息</a></li>
+          <li><a href="#">修改密码</a></li>
+          <li><a href="#">修改个人资料</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9 pull-right">
+        <div class="row">
+          <ol class="breadcrumb">
+            <li>试题管理</li>
+            <li class="active">创建试题</li>
+          </ol>
+        </div>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <form id="form" class="form-horizontal" role="form" data-smk-icon="glyphicon-remove">
+              <div class="form-group">
+                <label for="question" class="col-sm-2 control-label">问题</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" id="question" maxlength="100"
+                    placeholder="请输入问题" required></textarea> <span class="help-block">问题内容,最大长度为100</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="choiceA" class="col-sm-2 control-label">选项A</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="choiceA" maxlength="45" placeholder="请输入选项A" required> <span
+                    class="help-block">选项A的内容,最大长度为45</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="choiceB" class="col-sm-2 control-label">选项B</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="choiceB" maxlength="45" placeholder="请输入选项B" required> <span
+                    class="help-block">选项B的内容,最大长度为45</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="choiceC" class="col-sm-2 control-label">选项C</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="choiceC" maxlength="45" placeholder="请输入选项C" required> <span
+                    class="help-block">选项C的内容,最大长度为45</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="choiceD" class="col-sm-2 control-label">选项D</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="choiceD" maxlength="45" placeholder="请输入选项D" required> <span
+                    class="help-block">选项D的内容,最大长度为45</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="gender" class="col-sm-2 control-label">正确选项</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="answer" required>
+                    <option value=""></option>
+                    <option value="1">A</option>
+                    <option value="2">B</option>
+                    <option value="3">C</option>
+                    <option value="4">D</option>
+                  </select> <span class="help-block">试题的正确答案.A,B,C,D中的一项</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="description" class="col-sm-2 control-label">描述信息</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" id="description" maxlength="100"
+                    placeholder="请输入问题描述"></textarea> <span class="help-block">问题描述信息,最大长度为100</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-3">
+                  <button id="submit" type="button" class="btn btn-primary">创建</button>
+                </div>
+                <div class="col-sm-offset-1 col-sm-3">
+                  <button id="reset" type="button" class="btn btn-primary">重置</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>在线考试系统</title>
+<link href="/OnlineExamSystem/static/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="/OnlineExamSystem/static/css/login.css" rel="stylesheet" type="text/css" />
+<script src="/OnlineExamSystem/static/js/jquery-2.2.0.js"></script>
+<script src="/OnlineExamSystem/static/js/common.js"></script>
+<script src="/OnlineExamSystem/static/js/request-handle.js"></script>
+<script src="/OnlineExamSystem/static/js/login.js"></script>
+</head>
+<body>
+  <div id="title">
+    <label>在线考试系统</label>
+  </div>
+  <div id="theme"></div>
+  <div id="poetry">
+    <p>宝剑锋从磨砺出，</p>
+    <p style="position: relative; left: 50px;">梅花香自苦寒来。</p>
+  </div>
+  <div id="loginBody">
+    <p id="welcome">欢迎使用在线考试系统</p>
+    <p id="errorMsg"></p>
+    <form id="loginForm">
+      <div id="loginInfo">
+        <p class="user_name">
+          <input type="text" id="userName" name="userName" placeholder="用户名" />
+        </p>
+        <p>
+          <input type="password" id="password" name="password" placeholder="密码" />
+        </p>
+      </div>
+      <div id="other">
+        <span id="remember"> <input id="checked" name="remembered" type="checkbox" value="true" /> <label
+          for="checked">下次自动登录</label>
+        </span> <a href="#">忘记密码</a>
+      </div>
+      <input type="button" id="loginBtn" value="登录" />
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+dl, .menu {
+    width: 150px;
+}
+
+.menu {
+    text-align: center;
+    display: inline-block;
+    height: 28px;
+    position: absolute;
+    padding-top: 15px;
+    font-family: arial, ​tahoma, ​ "Microsoft Yahei", ​ "宋体", ​sans-serif;
+    color: #FFF;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#menuBar {
+    height: 43px;
+    background-color: #6699FF;
+}
+
+.menu_item {
+    display: none;
+    z-index: 5;
+}
+
+.menu:hover .menu_item {
+    display: inline-block;
+}
+
+.menu:hover {
+    background-color: #77AAFF;
+}
+
+#userManager {
+    left: 100px;
+}
+
+#userInfo {
+    left: 250px;
+}
+
+#menuBar #userManager dl, #menuBar #userInfo dl {
+    position: absolute;
+    top: 43px;
+    left: 0px;
+    background-color: #6699CC;
+}
+
+#menuBar #userManager dl div, #menuBar #userInfo dl div {
+    height: 27px;
+    padding-top: 13px;
+}
+
+#menuBar #userManager dl div:hover, #menuBar #userInfo dl div:hover {
+    background-color: #003399;
+}
+
+
+#tools {
+    display: inline-block;
+    padding-top: 15px;
+    height: 25px;
+    width: 200px;
+    float: right;
+    font-family: arial, ​tahoma, ​ "Microsoft Yahei", ​ "宋体", ​sans-serif;
+    font-size: 16px;
+    color: #FFF;
+    margin-right: 60px;
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    color: #003399;
+}
+
+a:link {
+    color: #FFF;
+}
+
+a:visited {
+    color: #FFFFFF;
+}

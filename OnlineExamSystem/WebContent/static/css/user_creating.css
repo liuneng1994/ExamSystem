@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+body {
+    background-color: #CCCCFF;
+}
+#mainBody {
+    display: inline-block;
+    position: absolute;
+    border: #FFFFFF 1px solid;
+    width: 70%;
+    height: 500px;
+    left: 50%;
+    right: 50%;
+    margin-left: -35%;
+    margin-right: -35%;
+    top: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #FFFFFC;
+    box-shadow: 0 0 10px #3340E6;
+	font-family: arial,​tahoma,​"Microsoft Yahei",​"宋体",​sans-serif;
+    font-size: 16px;
+}
+form {
+    padding-left: 300px;
+    padding-top: 50px;
+}
+#mainBody div {
+	width: 600px;
+	height: 60px;
+	vertical-align: center;
+}
+#mainBody div input[type=text],#mainBody div input[type=email],#mainBody div input[type=tel] {
+	height: 30px;
+	width: 200px;
+	border-radius: 5px;
+	border: #000000 1px solid;
+	box-shadow: 0 0 3px #000000;
+	padding-left: 5px;
+}
+#mainBody div input[type=button], #mainBody div input[type=reset] {
+	width: 60px;
+	height: 30px;
+	margin: 30px;
+}
+.error {
+	color: #F00;
+}
+.tip {
+    position: relative;
+    top: 5px;
+	font-size: 13px;
+	color: #666;
+}

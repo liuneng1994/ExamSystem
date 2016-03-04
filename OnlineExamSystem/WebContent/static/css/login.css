@@ -1,0 +1,164 @@
+@charset "utf-8";
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+#loginBody #loginForm div {
+	border: 1px solid #3399CC;
+	border-radius: 3px;
+}
+
+#loginBody #loginForm div .user_name {
+	border-bottom: 1px solid #3399CC;
+}
+
+#title {
+	height: 50px;
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20pt;
+	font-style: normal;
+	color: #ECECEC;
+	font-weight: bold;
+	background-color: #0066CC;
+}
+
+#title label {
+	position: absolute;
+	display: inline-block;
+	top: 10px;
+	left: 20px;
+}
+
+#poetry {
+	display: inline-block;
+	position: absolute;
+	top: 500px;
+	left: 200px;
+}
+
+#poetry p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 25px;
+}
+
+#loginBody {
+	position: absolute;
+	height: 350px;
+	width: 370px;
+	top: 25%;
+	left: 60%;
+	border: 1px solid #3399CC;
+	padding-left: 30px;
+	border-radius: 3px;
+}
+
+#userName {
+	position: relative;
+	display: inline-block;
+	width: 277px;
+	height: 23px;
+	margin: 0px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 35px;
+	border: none;
+	font-family: arial;
+	font-size: 16px;
+}
+
+#password {
+	position: relative;
+	display: inline-block;
+	width: 277px;
+	height: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 35px;
+	font-family: arial; font-size : 16px;
+	border: none;
+	font-size: 16px;
+}
+
+p {
+	margin: 0px;
+	padding: 0px;
+}
+
+#loginInfo {
+	margin: 0px;
+	height: 126px;
+	width: 300px;
+	text-align: center;
+	padding-top: 0px;
+	padding-right: 20px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+	position: relative;
+	top: 80px;
+}
+
+#loginBody #loginForm #remember label {
+	font: 12px/1.5 arial, simsun;
+	color: #666;
+}
+
+#loginBody #loginForm #other {
+	width: 340px;
+	position: relative;
+	top: 90px;
+	border: none;
+}
+
+#loginBody #errorMsg {
+	font: 12px/1.5 arial, simsun;
+	color: #F00;
+	position: absolute;
+	top: 50px;
+}
+
+#loginBody #welcome {
+	position: absolute;
+	font-family: "Microsoft Yahei", simsun, arial;
+	font-size: 22px;
+	color: #0066CC;
+	top: 10px;
+}
+
+#theme {
+	position: absolute;
+	top: 20%;
+	background-image: url(../img/wintersweet.jpg);
+	height: 423px;
+	width: 651px;
+}
+
+#loginBody #loginForm #loginBtn {
+	display: block;
+	width: 340px;
+	height: 52px;
+	background-color: #0066CC;
+	border: none;
+	border-radius: 3px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 24px;
+	color: white;
+	position: relative;
+	top: 110px;
+}
+
+#loginBody #loginForm #remember {
+	text-align: center;
+}
+
+#loginBody #loginForm a {
+	position: relative;
+	left: 170px;
+}
+
+#loginBody #loginForm #remember input {
+	position: relative;
+	top: 3px;
+}

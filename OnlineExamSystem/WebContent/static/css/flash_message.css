@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+#flashMessage {
+    display: none;
+    width: 200px;
+    color: #FFF;
+    font-family: arial,​tahoma,​"Microsoft Yahei",​"宋体",​sans-serif;
+    font-size: 16px;
+    padding: 5px;
+    position: absolute;
+    background-color: rgba(78, 185, 11, 0.75);
+    border-radius: 3px;
+    left: 50%;
+    margin-left: -100px;
+    top: 8%;
+    text-align: center;
+}
