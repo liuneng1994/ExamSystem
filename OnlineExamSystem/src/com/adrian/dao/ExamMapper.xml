@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.adrian.dao.ExamDao">
+  <resultMap type="Exam" id="ExamMapping">
+    <id property="id" column="id"/>
+    <result property="examName" column="examName"/>
+    <result property="description" column="description"/>
+    <result property="effectiveTime" column="effectiveTime"/>
+    <result property="endTime" column="endTime"/>
+    <result property="duration" column="duration"/>
+    <result property="passCriteria" column="passCriteria"/>
+    <result property="singleScore" column="singleScore"/>
+    <result property="questionCount" column="questionCount"/>
+  </resultMap>
+  <select id="getById" parameterType="int">
+    SELECT 
+      *
+    FROM 
+      examinfo
+    WHERE 
+      id=#{1}
+  </select>
+  
+  <insert id="add" parameterType="Exam" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO
+      examInfo(examName, description, effectiveTime, endTime, duration, passCriteria, singleScore, questionCount)
+    VALUES
+      (#{examName}, #{description}, #{effectiveTime}, #{endTime}, #{duration}, #{passCriteria}, #{singleScore}, #{questionCount});
+  </insert>
+  
+  <select id="getExams" parameterType="basePagination">
+    <bind name="pattern" value="'%' + _parameter.getKeyword() + '%"/>
+    SELECT
+      *
+    FROM
+      userinfo
+    WHERE
+      username LIKE #{pattern}
+      AND isActive = 1
+    ORDER BY
+      `${sortColumn}` 
+      <choose>
+        <when test="sortMethod == 0">ASC</when>
+        <when test="sortMethod == 1">DESC</when>
+      </choose>
+    LIMIT #{offset},#{perpageCount}
+  </select>
+</mapper>

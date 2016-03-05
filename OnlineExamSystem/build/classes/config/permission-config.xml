@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<permissions>
+  <permission roleType="1" uri="/page/sysadmin"></permission>
+  <permission roleType="1" uri="/page/sysadmin/create_user"></permission>
+  <permission roleType="1" uri="/page/sysadmin/person_info"></permission>
+  <permission roleType="1"
+    uri="/page/sysadmin/update_current_other_info"></permission>
+  <permission roleType="1"
+    uri="/page/sysadmin/update_current_password"></permission>
+  <permission roleType="1" uri="/page/sysadmin/user_detail"></permission>
+  <permission roleType="1" uri="/page/sysadmin/update_user_detail"></permission>
+  <permission roleType="1" uri="/request/user/create_user"></permission>
+  <permission roleType="1" uri="/request/user/delete_user"></permission>
+  <permission roleType="1" uri="/request/user/query_user"></permission>
+  <permission roleType="1" uri="/request/user/current_user"></permission>
+  <permission roleType="1" uri="/request/user/update_user"></permission>
+  <permission roleType="1" uri="/request/user/update_password"></permission>
+  <permission roleType="1" uri="/request/user/update_base_info"></permission>
+  <permission roleType="1" uri="/request/user/get_user"></permission>
+  <permission roleType="1" uri="/request/logout"></permission>
+
+  <permission roleType="2" uri="/page/contentadmin"></permission>
+  <permission roleType="2" uri="/page/contentadmin/question_create"></permission>
+  <permission roleType="2" uri="/page/contentadmin/question_detail"></permission>
+  <permission roleType="2"
+    uri="/page/contentadmin/update_question_detail"></permission>
+  <permission roleType="2" uri="/request/question/add"></permission>
+  <permission roleType="2" uri="/request/question/update"></permission>
+  <permission roleType="2" uri="/request/question/delete"></permission>
+  <permission roleType="2" uri="/request/question/get"></permission>
+  <permission roleType="2" uri="/request/question/get_questions"></permission>
+  <permission roleType="2" uri="/request/logout"></permission>
+  <permission roleType="2" uri="/request/user/current_user"></permission>
+  <permission roleType="2" uri="/request/user/update_password"></permission>
+  <permission roleType="2" uri="/request/user/update_base_info"></permission>
+</permissions>

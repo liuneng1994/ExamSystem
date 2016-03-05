@@ -68,12 +68,13 @@
     </select>
     
     <select id="getQuestions" parameterType="BasePagination" resultType="Question">
+      <bind name="pattern" value="'%' + _parameter.getKeyword() + '%"/>
       SELECT
         *
       FROM
         questioncontent
       WHERE
-        question LIKE '%${keyword}%'
+        username LIKE #{pattern}
         AND isActive = 1
       ORDER BY
         `${sortColumn}` 

@@ -65,12 +65,13 @@
   </select>
   
   <select id="getUsers" parameterType="BasePagination" resultType="User">
+    <bind name="pattern" value="'%' + _parameter.getKeyword() + '%"/>
     SELECT
       id, userName, gender, roleType, phoneNumber, email, chineseName
     FROM
       userinfo
     WHERE
-      username LIKE '%${keyword}%'
+      username LIKE #{pattern}
       AND isActive = 1
     ORDER BY
       `${sortColumn}` 
