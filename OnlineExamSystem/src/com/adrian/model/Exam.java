@@ -3,15 +3,15 @@ package com.adrian.model;
 import java.util.Date;
 
 public class Exam {
-    private Integer id;
-    private String examName;
-    private String description;
-    private Date effectiveTime;
-    private Date endTime;
-    private Integer duration;
-    private Integer passCriteria;
-    private Integer singleScore;
-    private Integer questionCount;
+    protected Integer id;
+    protected String examName;
+    protected String description;
+    protected Date effectiveTime;
+    protected Date endTime;
+    protected Integer duration;
+    protected Integer passCriteria;
+    protected Integer singleScore;
+    protected Integer questionCount;
 
     public Integer getId() {
         return id;

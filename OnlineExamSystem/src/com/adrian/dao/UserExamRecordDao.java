@@ -9,5 +9,7 @@ public interface UserExamRecordDao {
 
     List<UserExamRecord> getRecordsByUserId(int id);
 
+    List<UserExamRecord> getStudentsByExamId(int id);
+
     void addRecords(List<UserExamRecord> list);
 }

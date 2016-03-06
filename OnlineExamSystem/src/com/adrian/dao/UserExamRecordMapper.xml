@@ -13,20 +13,52 @@
     <id property="startTime" column="startTime"/>
   </resultMap>
   
-  <select id="getRecordsByExamId" parameterType="int">
+  <select id="getRecordsByExamId" parameterType="int" resultMap="UserExamRecordMapping">
     SELECT
-      *
+      record.id,
+      record.userInfoId,
+      record.examInfoId,
+      record.score,
+      record.isFinished,
+      record.startTime,
+      user.userName
     FROM
-      userhasexam
+      userhasexam AS record
+    LEFT JOIN
+      userinfo AS user
+    ON
+      userhasexam.userInfoId = userinfo.id
     WHERE
       examInfoId = #{1}
   </select>
   
-  <select id="getRecordsByUserId" parameterType="int">
+  <select id="getStudentsByExamId" parameterType="int" resultMap="UserExamRecordMapping">
     SELECT
-      *
+      userInfoId,
+      userinfo.userName
     FROM
       userhasexam
+    ON
+      userhasexam.userInfoId = userinfo.id
+    WHERE
+      examInfoId = #{1}
+  </select>
+  
+  <select id="getRecordsByUserId" parameterType="int" resultMap="UserExamRecordMapping">
+    SELECT
+      record.id,
+      record.userInfoId,
+      record.examInfoId,
+      record.score,
+      record.isFinished,
+      record.startTime,
+      user.userName
+    FROM
+      userhasexam AS record
+    LEFT JOIN
+      userinfo AS user
+    ON
+      userhasexam.userInfoId = userinfo.id
     WHERE
       userInfoId = #{1}
   </select>

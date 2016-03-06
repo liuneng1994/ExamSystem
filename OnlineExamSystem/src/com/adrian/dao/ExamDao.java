@@ -11,4 +11,6 @@ public interface ExamDao {
     List<Exam> getExams(BasePagination pagination);
 
     int add(Exam exam);
+
+    int getExamCountByKeyword(String keyword);
 }

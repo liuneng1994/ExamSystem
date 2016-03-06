@@ -13,7 +13,7 @@
     <result property="singleScore" column="singleScore"/>
     <result property="questionCount" column="questionCount"/>
   </resultMap>
-  <select id="getById" parameterType="int">
+  <select id="getById" parameterType="int" resultMap="ExamMapping">
     SELECT 
       *
     FROM 
@@ -29,7 +29,16 @@
       (#{examName}, #{description}, #{effectiveTime}, #{endTime}, #{duration}, #{passCriteria}, #{singleScore}, #{questionCount});
   </insert>
   
-  <select id="getExams" parameterType="basePagination">
+  <select id="getExamCountByKeyword" resultType="int">
+    SELECT
+      COUNT(1)
+    FROM
+      examInfo
+    WHERE
+      examName LIKE CONCAT(CONCAT('%', #{text}), '%')
+  </select>
+  
+  <select id="getExams" parameterType="basePagination" resultMap="ExamMapping">
     <bind name="pattern" value="'%' + _parameter.getKeyword() + '%"/>
     SELECT
       *

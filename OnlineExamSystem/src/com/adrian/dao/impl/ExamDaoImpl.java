@@ -15,6 +15,7 @@ public class ExamDaoImpl extends SqlSessionDaoSupport implements ExamDao {
     private static final String GET_BY_ID = ".getById";
     private static final String ADD = ".add";
     private static final String GET_EXAMS = ".getExams";
+    private static final String GET_EXAM_COUNT = ".getExamCountByKeyword";
 
     @Override
     public Exam getById(int id) {
@@ -29,6 +30,11 @@ public class ExamDaoImpl extends SqlSessionDaoSupport implements ExamDao {
     @Override
     public List<Exam> getExams(BasePagination pagination) {
         return getSqlSession().selectList(CLASS_NAME + GET_EXAMS, pagination);
+    }
+
+    @Override
+    public int getExamCountByKeyword(String keyword) {
+        return getSqlSession().selectOne(CLASS_NAME + GET_EXAM_COUNT, keyword);
     }
 
 }
