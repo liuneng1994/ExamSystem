@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.adrian.dao.UserExamRecordDao">
+  <resultMap type="UserExamRecord" id="UserExamRecordMapping">
+    <id property="id" column="id"/>
+    <id property="userId" column="userInfoId"/>
+    <id property="examId" column="examInfoId"/>
+    <id property="userName" column="userName"/>
+    <id property="score" column="score"/>
+    <id property="isFinished" column="isFinished"/>
+    <id property="startTime" column="startTime"/>
+  </resultMap>
+  
+  <select id="getRecordsByExamId" parameterType="int" resultMap="UserExamRecordMapping">
+    SELECT
+      record.id,
+      record.userInfoId,
+      record.examInfoId,
+      record.score,
+      record.isFinished,
+      record.startTime,
+      user.userName
+    FROM
+      userhasexam AS record
+    LEFT JOIN
+      userinfo AS user
+    ON
+      userhasexam.userInfoId = userinfo.id
+    WHERE
+      examInfoId = #{1}
+  </select>
+  
+  <select id="getStudentsByExamId" parameterType="int" resultMap="UserExamRecordMapping">
+    SELECT
+      userInfoId,
+      userinfo.userName
+    FROM
+      userhasexam
+    ON
+      userhasexam.userInfoId = userinfo.id
+    WHERE
+      examInfoId = #{1}
+  </select>
+  
+  <select id="getRecordsByUserId" parameterType="int" resultMap="UserExamRecordMapping">
+    SELECT
+      record.id,
+      record.userInfoId,
+      record.examInfoId,
+      record.score,
+      record.isFinished,
+      record.startTime,
+      user.userName
+    FROM
+      userhasexam AS record
+    LEFT JOIN
+      userinfo AS user
+    ON
+      userhasexam.userInfoId = userinfo.id
+    WHERE
+      userInfoId = #{1}
+  </select>
+  
+  <insert id="addRecords" parameterType="list">
+    INSERT INTO
+      userhasexam(userInfoId, examInfoId)
+    VALUES
+      <foreach collection="list" index="index" item="item" open="(" separator="),(" close=");">
+        #{item.userId},#{item.examId}
+      </foreach>
+  </insert>
+</mapper>

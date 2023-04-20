@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+body {
+    background-color: #CCCCFF;
+}
+
+#mainBody {
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#tableBody {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    right: 50%;
+    margin-left: -500px;
+    margin-right: -500px;
+}
+
+#table {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+#controlBar input {
+    width: 40px;
+    height: 25px;
+}
+
+#controlBar input[type=button] {
+    display: inline-block;
+}
+
+#controlBar input[type=number] {
+    margin-left: 150px;
+    height: 20px;
+}
+
+#controlBar {
+    text-align: center;
+    position: relative;
+    top: 20px;
+    margin-bottom: 100px;
+}
+
+#searchBar input {
+    height: 25px;
+}
+
+#searchBar {
+    position: absolute;
+    top: 70px;
+    left: 45px;
+}
+
+#keyword {
+    border-radius: 3px;
+    border: none;
+}

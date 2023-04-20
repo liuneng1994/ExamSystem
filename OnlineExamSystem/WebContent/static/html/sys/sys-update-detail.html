@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>修改个人资料</title>
+<link href="/OnlineExamSystem/static/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/OnlineExamSystem/static/css/smoke.min.css" rel="stylesheet" />
+<script src="/OnlineExamSystem/static/js/jquery-2.2.0.js"></script>
+<script src="/OnlineExamSystem/static/js/smoke.min.js"></script>
+<script src="/OnlineExamSystem/static/js/bootstrap.min.js"></script>
+<script src="/OnlineExamSystem/static/js/common.js"></script>
+<script src="/OnlineExamSystem/static/js/init.js"></script>
+<script src="/OnlineExamSystem/static/js/request-handle.js"></script>
+<script src="/OnlineExamSystem/static/js/update-other-info.js"></script>
+</head>
+<body style="margin-bottom: 50px">
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/OnlineExamSystem/page/sysadmin">在线考试系统</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="/OnlineExamSystem/page/sysadmin/person_info"><span class="glyphicon glyphicon-user"></span><label
+            id="currentUser"></label></a></li>
+        <li><a href="/OnlineExamSystem/request/logout"><span class="glyphicon glyphicon-log-out"></span>注销</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 pull-left">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="nav-header">用户管理</li>
+          <li><a href="/OnlineExamSystem/page/sysadmin">查看用户列表</a></li>
+          <li><a href="/OnlineExamSystem/page/sysadmin/create_user">创建新用户</a></li>
+          <li class="nav-header">个人信息</li>
+          <li><a href="/OnlineExamSystem/page/sysadmin/person_info">查看个人信息</a></li>
+          <li><a href="/OnlineExamSystem/page/sysadmin/update_current_password">修改密码</a></li>
+          <li class="active"><a href="/OnlineExamSystem/page/sysadmin/update_current_other_info">修改个人资料</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9 pull-right">
+        <div class="row">
+          <ol class="breadcrumb">
+            <li>个人信息</li>
+            <li class="active">修改个人资料</li>
+          </ol>
+        </div>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <form id="form" class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="userName" class="col-sm-2 control-label">用户名</label>
+                <div class="col-sm-10">
+                  <p class="form-control-static" id="userName"></p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="chineseName" class="col-sm-2 control-label">中文名</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="chineseName" maxlength="32" placeholder="请输入用户中文姓名"> <span
+                    class="help-block">用户的中文姓名</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="gender" class="col-sm-2 control-label">性别</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="gender">
+                    <option value="0">男</option>
+                    <option value="1">女</option>
+                  </select> <span class="help-block">用户的真实性别</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="roleType" class="col-sm-2 control-label">用户类型</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="role">
+                    <option value="1">系统管理员</option>
+                    <option value="2">题库管理员</option>
+                    <option value="3">教师</option>
+                    <option value="4">学生</option>
+                  </select> <span class="help-block">用户的角色类型</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="phone" class="col-sm-2 control-label">联系电话</label>
+                <div class="col-sm-10">
+                  <input type="tel" class="form-control" id="phone" maxlength="20" placeholder="请输入用户联系方式"> <span
+                    class="help-block">用户的电话号码</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">电子邮箱</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="email" maxlength="125" placeholder="请输入用户电子邮箱"> <span
+                    class="help-block">用户的电子邮箱,如123@example.com</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-3">
+                  <button id="submit" type="button" class="btn btn-primary">提交</button>
+                </div>
+                <div class="col-sm-offset-1 col-sm-3">
+                  <button id="reset" type="button" class="btn btn-primary">重置</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

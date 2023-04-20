@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd"
+  default-autowire="byName">
+  <mvc:annotation-driven validator="validator">
+    <mvc:message-converters>
+      <bean
+        class="org.springframework.http.converter.StringHttpMessageConverter" />
+      <bean
+        class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+    </mvc:message-converters>
+  </mvc:annotation-driven>
+  
+  <context:component-scan base-package="com.adrian.*"></context:component-scan>
+  
+  <!-- <mvc:resources mapping="/static/js/**" location="/static/js/" /> <mvc:resources 
+    mapping="/static/css/**" location="/static/css/" /> <mvc:resources mapping="/static/img/**" 
+    location="/static/img/" /> <mvc:resources mapping="/static/html/**" location="/static/html/" 
+    /> -->
+
+  <bean id="handlerMapping"
+    class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+    <property name="urlPathHelper">
+      <bean class="org.springframework.web.util.UrlPathHelper">
+        <property name="alwaysUseFullPath" value="true"></property>
+      </bean>
+    </property>
+  </bean>
+
+  <bean id="validator"
+    class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+    <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+  </bean>
+
+  <bean
+    class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="prefix" value="/static/html/" />
+    <property name="suffix" value=".html" />
+  </bean>
+  
+  <mvc:view-controller path="/sysadmin" view-name="sys/sysadmin"/>
+  <mvc:view-controller path="/sysadmin/create_user" view-name="sys/user-create"/>
+  <mvc:view-controller path="/sysadmin/person_info" view-name="sys/sys-detail"/>
+  <mvc:view-controller path="/sysadmin/update_current_other_info" view-name="sys/sys-update-detail"/>
+  <mvc:view-controller path="/sysadmin/update_current_password" view-name="sys/sys-update-password"/>
+  <mvc:view-controller path="/sysadmin/user_detail" view-name="sys/user-detail"/>
+  <mvc:view-controller path="/sysadmin/update_user_detail" view-name="sys/update-user-detail"/>
+  
+  <mvc:view-controller path="/contentadmin" view-name="content/contentadmin"/>
+  <mvc:view-controller path="/contentadmin/question_create" view-name="content/question-create"/>
+  <mvc:view-controller path="/contentadmin/question_detail" view-name="content/question-detail"/>
+  <mvc:view-controller path="/contentadmin/update_question_detail" view-name="content/update-question-detail"/>
+</beans>
